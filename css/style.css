@@ -1,0 +1,129 @@
+/* Default styles to all elements */
+*{
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+    box-sizing: border-box;
+}
+.section{
+    width: 100%;
+    min-height: 100vh;
+    background: linear-gradient(45deg, #08001f, #30197d);
+    color: #fff;
+    position: relative;
+}
+.container{
+    width: 800px;
+    height: 180px;
+    background: rgba(235, 0, 255, 0.11);
+    position: absolute;
+    top: 45%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+.hour-option{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 35px;
+    color: #419aff;
+    margin: 1%;
+}
+.hour-option select{
+    font-size: 20px;
+    background-color: #30197d;
+    padding: 1.5%;
+    color: #fff;
+    border: 3px;
+    border-radius: 8%;
+}
+/* Style for the digital clock display */
+.clock{
+    width: 100%;
+    height: 100%;
+    background: rgba(235, 0, 255, 0.11);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    backdrop-filter: blur(40px);
+}
+.container::before{
+    content: '';
+    width: 180px;
+    height: 180px;
+    background: #b32f66;
+    border-radius: 5px;
+    position: absolute;
+    top: 15px;
+    left: -50px;
+    z-index: -1;
+}
+.container::after{
+    content: '';
+    width: 180px;
+    height: 180px;
+    background: #3f90eb;
+    border-radius: 50%;
+    position: absolute;
+    bottom: -80px;
+    right: -50px;
+    z-index: -1;
+}
+.clock span{
+    font-size: 80px;
+    width: 90px;
+    display: inline-block;
+    text-align: center;
+    position: relative;
+}
+.clock span::after{
+    font-size: 14px;
+    position: absolute;
+    bottom: -5px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+/* Labels for hours, minutes, seconds, and AM/PM */
+#hours::after{
+    content: 'HOURS';
+}
+#mint::after{
+    content: 'MINUTES';
+}
+#sec::after{
+    content: 'SECONDS';
+}
+#ampm{
+    font-size: 50px;
+}
+
+
+
+/* Media Query for Smaller Screens */
+@media screen and (max-width: 9150px) {
+    .container {
+        width: 90%;
+    }
+}
+@media screen and (max-width: 720px) {
+    .container {
+        width: 90%;
+    }
+    .hour-option{
+        font-size: 22px;
+    }
+    .hour-option select{
+        font-size: 15px;
+    }
+    .clock span{
+        font-size: 50px;
+        width: 60px;
+    }
+    .clock span::after{
+        font-size: 9px;
+    }
+    #ampm{
+        font-size: 30px;
+    }
+}
